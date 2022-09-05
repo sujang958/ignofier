@@ -1,12 +1,4 @@
-// import vegot from "vegot"
-
-import {
-  existsSync,
-  lstatSync,
-  readdirSync,
-  readFileSync,
-  unlinkSync,
-} from "fs"
+import { existsSync } from "fs"
 import { join } from "path"
 import simpleGit from "simple-git"
 
@@ -23,15 +15,9 @@ const pullRepo = async () => {
   await git.pull("origin", "main")
 }
 
-const deleteWithoutIgnores =async () => {
-  
-}
-
 const setup = async () => {
   if (await checkCloned()) pullRepo()
   else cloneRepo()
-
-
 }
 
 // cloneRepo()

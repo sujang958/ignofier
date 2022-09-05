@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "simple-git": "^3.14.0",
-    "vegot": "^1.0.1"
+    "simple-git": "^3.14.0"
   },
   "devDependencies": {
     "@types/node": "^18.7.13",

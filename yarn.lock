@@ -44,8 +44,3 @@ typescript@^4.8.2:
   version "4.8.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.2.tgz#e3b33d5ccfb5914e4eeab6699cf208adee3fd790"
   integrity sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==
-
-vegot@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vegot/-/vegot-1.0.1.tgz#a66f25485e5788deb840a04cf36b4d016ea893f2"
-  integrity sha512-+AslhOvOlUuKY40colmu+Mefw+XqJUUZN9pl5y7zwxFYI/2/bHq8h20iMMS+7UnJaUSvJud2CTd9OnYj2ik4TA==
