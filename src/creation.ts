@@ -17,7 +17,10 @@ export const ask = async (): Promise<{ selected: string }> => {
       message: "Choice a file you want to add",
       source: (_: any, input: any) =>
         choices.filter((choice) =>
-          choice.name.toLowerCase().includes(input?.toLowerCase() || "")
+          choice.name
+            .toLowerCase()
+            .replace(".gitignore", "")
+            .includes(input?.toLowerCase() || "")
         ),
       choices,
     },
