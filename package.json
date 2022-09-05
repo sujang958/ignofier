@@ -1,6 +1,6 @@
 {
   "name": "ignofier",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./out/app.js",
   "bin": {
     "ignofier": "./out/app.js"
