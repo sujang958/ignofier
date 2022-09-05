@@ -4,9 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "inquirer": "^8.0.0",
+    "inquirer-autocomplete-prompt": "^2.0.0",
     "simple-git": "^3.14.0"
   },
   "devDependencies": {
+    "@types/inquirer": "^9.0.1",
+    "@types/inquirer-autocomplete-prompt": "^1.3.5",
     "@types/node": "^18.7.13",
     "typescript": "^4.8.2"
   }
