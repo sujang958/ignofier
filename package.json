@@ -1,7 +1,13 @@
 {
   "name": "ignofier",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./out/app.js",
+  "bin": {
+    "ignofier": "./out/app.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
   "license": "MIT",
   "dependencies": {
     "inquirer": "^8.0.0",
