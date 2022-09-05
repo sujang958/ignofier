@@ -4,13 +4,16 @@ import { readFileSync } from "fs"
 import { join } from "path"
 import { ask, createFile } from "./creation"
 import { setup } from "./git"
+import { checkVersionUpToDate } from "./version"
+
 ;["-v", "--version"].includes(process.argv[2]) &&
   (() => {
     console.log(require("../package.json").version)
     process.exit()
   })()
 
-const run = async () => {
+const ignofier = async () => {
+  await checkVersionUpToDate()
   await setup()
   const { selected: chosenFile } = await ask()
   await createFile(
@@ -19,4 +22,4 @@ const run = async () => {
   )
 }
 
-run()
+ignofier()

@@ -9,7 +9,9 @@ const git = simpleGit(DIR)
 export const checkCloned = async () => existsSync(join(DIR, ".git/config"))
 
 export const cloneRepo = async () => {
+  process.stdout.write("Cloning the repo... \r\n")
   await git.clone("https://github.com/github/gitignore", ".")
+  console.log("Done")
 }
 
 export const pullRepo = async () => {

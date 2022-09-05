@@ -14,7 +14,8 @@
   "dependencies": {
     "inquirer": "^8.0.0",
     "inquirer-autocomplete-prompt": "^2.0.0",
-    "simple-git": "^3.14.0"
+    "simple-git": "^3.14.0",
+    "vegot": "^1.0.3"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.1",
