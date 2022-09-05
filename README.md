@@ -12,7 +12,7 @@ $ npm install --location=global ignofier
 ```
 
 ## Usage
-
+![Gif Image](./using.gif)
 
 ## License
 This package is licensed under MIT License

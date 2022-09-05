@@ -6,7 +6,8 @@
     "ignofier": "./out/app.js"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "publish": "yarn build && npm publish"
   },
   "license": "MIT",
   "dependencies": {
