@@ -12,7 +12,7 @@ $ npm install --location=global ignofier
 ```
 
 ## Usage
-![Gif Image](./using.gif)
+![Gif Image](https://raw.githubusercontent.com/sujang958/ignofier/main/using.gif)
 
 ## License
 This package is licensed under MIT License
