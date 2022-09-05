@@ -1,8 +1,9 @@
-import { existsSync, readdirSync } from "fs"
+import { existsSync, mkdirSync, readdirSync } from "fs"
 import { join } from "path"
 import simpleGit from "simple-git"
 
 const DIR = join(__dirname, "../git/")
+!existsSync(DIR) && mkdirSync(DIR)
 const git = simpleGit(DIR)
 
 export const checkCloned = async () => existsSync(join(DIR, ".git/config"))
@@ -16,8 +17,8 @@ export const pullRepo = async () => {
 }
 
 export const setup = async () => {
-  if (await checkCloned()) pullRepo()
-  else cloneRepo()
+  if (await checkCloned()) await pullRepo()
+  else await cloneRepo()
 }
 
 export const getIgnoreFiles = async () =>

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "publish": "yarn build && yarn publish"
+    "pub": "tsc && yarn publish"
   },
   "license": "MIT",
   "dependencies": {

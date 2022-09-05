@@ -11,9 +11,9 @@ import { setup } from "./git"
   })()
 
 const run = async () => {
-  setup()
+  await setup()
   const { selected: chosenFile } = await ask()
-  createFile(
+  await createFile(
     readFileSync(chosenFile).toString("utf8"),
     join(process.cwd(), ".gitignore")
   )
