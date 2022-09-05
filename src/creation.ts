@@ -16,7 +16,9 @@ export const ask = async (): Promise<{ selected: string }> => {
       name: "selected",
       message: "Choice a file you want to add",
       source: (_: any, input: any) =>
-        choices.filter((choice) => choice.name.includes(input || "")),
+        choices.filter((choice) =>
+          choice.name.toLowerCase().includes(input?.toLowerCase() || "")
+        ),
       choices,
     },
   ])
