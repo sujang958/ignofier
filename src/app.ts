@@ -4,10 +4,11 @@ import { readFileSync } from "fs"
 import { join } from "path"
 import { ask, createFile } from "./creation"
 import { setup } from "./git"
-
-;(["-v", "--version"].includes(process.argv[2]) &&
-  console.log(require("../package.json").version)) ||
-  process.exit()
+;["-v", "--version"].includes(process.argv[2]) &&
+  (() => {
+    console.log(require("../package.json").version)
+    process.exit()
+  })()
 
 const run = async () => {
   setup()

@@ -14,6 +14,11 @@ const fs_1 = require("fs");
 const path_1 = require("path");
 const creation_1 = require("./creation");
 const git_1 = require("./git");
+["-v", "--version"].includes(process.argv[2]) &&
+    (() => {
+        console.log(require("../package.json").version);
+        process.exit();
+    })();
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
     (0, git_1.setup)();
     const { selected: chosenFile } = yield (0, creation_1.ask)();
