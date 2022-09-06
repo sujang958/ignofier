@@ -6,12 +6,6 @@ import { ask, createFile } from "./creation"
 import { setup } from "./git"
 import { checkVersionUpToDate } from "./version"
 
-;["-v", "--version"].includes(process.argv[2]) &&
-  (() => {
-    console.log(require("../package.json").version)
-    process.exit()
-  })()
-
 const ignofier = async () => {
   await checkVersionUpToDate()
   await setup()
@@ -22,4 +16,10 @@ const ignofier = async () => {
   )
 }
 
-ignofier()
+;["-v", "--version"].includes(process.argv[2])
+  ? (async () => {
+      console.log(require("../package.json").version)
+      await checkVersionUpToDate()
+      process.exit()
+    })()
+  : ignofier()
