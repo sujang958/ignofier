@@ -25,7 +25,7 @@ const showVersion = async () => {
 const UPDATE_OPTIONS = ["-u", "--update"]
 
 const main = async () => {
-  const OPTION = process.argv[2].toLowerCase()
+  const OPTION = process.argv[2]?.toLowerCase()
 
   if (VERSION_OPTIONS.includes(OPTION))
     return await showVersion()
