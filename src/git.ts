@@ -18,6 +18,14 @@ export const pullRepo = async () => {
   await git.pull("origin", "main")
 }
 
+export const updateRepo = async () => {
+  const res = await git.pull("origin", "main")
+  if (res.summary.changes > 0)
+    return true
+  else
+    return false
+}
+
 export const setup = async () => {
   if (await checkCloned()) await pullRepo()
   else await cloneRepo()
