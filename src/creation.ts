@@ -27,7 +27,7 @@ export const ask = async (): Promise<{ selected: string }> => {
   ])
 }
 
-export const createFile = async (content: string, path: string) => {
+export const createFile = async (type: string, path: string) => {
   if (existsSync(path))
     if (
       !(
@@ -40,5 +40,5 @@ export const createFile = async (content: string, path: string) => {
     )
       return console.log("Canceled")
 
-  writeFileSync(path, content)
+  writeFileSync(path, type)
 }

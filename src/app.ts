@@ -3,37 +3,27 @@
 import { readFileSync } from "fs"
 import { join } from "path"
 import { ask, createFile } from "./creation"
-import { setup, updateRepo } from "./git"
+import { checkCloned, cloneRepo, updateRepo } from "./git"
 import { checkVersionUpToDate } from "./version"
+import sade from "sade"
 
-const ignofier = async () => {
-  await checkVersionUpToDate()
-  await setup()
-  const { selected: chosenFile } = await ask()
-  await createFile(
-    readFileSync(chosenFile).toString("utf8"),
-    join(process.cwd(), ".gitignore")
-  )
-}
+const ignofier = sade("ignofier", true)
 
-const VERSION_OPTIONS = ["-v", "--version"]
-const showVersion = async () => {
-  console.log(require("../package.json").version)
-  await checkVersionUpToDate()
-}
+ignofier
+  .version(require("../package.json").version)
+  .describe("Create a .gitignore file")
+  .option("-v --version", "Check the version")
+  .option("-u --update", "Update the gitignore repo")
+  .action(async (options) => {
+    if (options.version) return await checkVersionUpToDate()
+    else if (options.update) return await updateRepo()
 
-const UPDATE_OPTIONS = ["-u", "--update"]
+    if (!(await checkCloned())) await cloneRepo()
+    const { selected: chosenFile } = await ask()
+    await createFile(
+      readFileSync(chosenFile).toString("utf8"),
+      join(process.cwd(), ".gitignore")
+    )
+  })
 
-const main = async () => {
-  const OPTION = process.argv[2]?.toLowerCase()
-
-  if (VERSION_OPTIONS.includes(OPTION))
-    return await showVersion()
-  if (UPDATE_OPTIONS.includes(OPTION))
-    return updateRepo().then((updated) => (console.log(updated ? "Updated" : "Already up-to-date")))
-
-
-  ignofier()
-}
-
-main()
+ignofier.parse(process.argv)

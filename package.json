@@ -14,6 +14,7 @@
   "dependencies": {
     "inquirer": "^8.0.0",
     "inquirer-autocomplete-prompt": "^2.0.0",
+    "sade": "^1.8.1",
     "simple-git": "^3.14.0",
     "vegot": "^1.0.3"
   },

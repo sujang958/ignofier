@@ -2,39 +2,29 @@ import { existsSync, mkdirSync, readdirSync } from "fs"
 import { join } from "path"
 import simpleGit from "simple-git"
 
-const DIR = join(__dirname, "../git/")
-!existsSync(DIR) && mkdirSync(DIR)
-const git = simpleGit(DIR)
+const REPO_DIR = join(__dirname, "../git/")
+!existsSync(REPO_DIR) && mkdirSync(REPO_DIR)
+const git = simpleGit(REPO_DIR)
 
-export const checkCloned = async () => existsSync(join(DIR, ".git/config"))
+export const checkCloned = async () => existsSync(join(REPO_DIR, ".git/config"))
 
 export const cloneRepo = async () => {
-  process.stdout.write("Cloning the repo... \r\n")
+  process.stdout.write("Cloning the github/gitignore repository... \r\n")
   await git.clone("https://github.com/github/gitignore", ".")
   console.log("Done")
 }
 
-export const pullRepo = async () => {
-  await git.pull("origin", "main")
-}
-
 export const updateRepo = async () => {
+  console.log("Updating the repository")
   const res = await git.pull("origin", "main")
-  if (res.summary.changes > 0)
-    return true
-  else
-    return false
-}
-
-export const setup = async () => {
-  if (await checkCloned()) await pullRepo()
-  else await cloneRepo()
+  if (res.summary.changes > 0) return console.log("Updated")
+  else return console.log("Already up-to-date")
 }
 
 export const getIgnoreFiles = async () =>
-  readdirSync(DIR)
+  readdirSync(REPO_DIR)
     .filter((file) => file.endsWith(".gitignore"))
     .map((file) => ({
       name: file,
-      path: join(DIR, file),
+      path: join(REPO_DIR, file),
     }))
