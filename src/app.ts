@@ -12,13 +12,13 @@ const ignofier = sade("ignofier", true)
 ignofier
   .version(require("../package.json").version)
   .describe("Create a .gitignore file")
-  .option("-v --version", "Check the version")
   .option("-u --update", "Update the gitignore repo")
   .action(async (options) => {
-    if (options.version) return await checkVersionUpToDate()
-    else if (options.update) return await updateRepo()
+    await checkVersionUpToDate()
 
+    if (options.update) return await updateRepo()
     if (!(await checkCloned())) await cloneRepo()
+
     const { selected: chosenFile } = await ask()
     await createFile(
       readFileSync(chosenFile).toString("utf8"),
