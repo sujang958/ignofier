@@ -1,6 +1,6 @@
 {
   "name": "ignofier",
-  "description": "A Cli that allows you to easily make gitignore files",
+  "description": "Create a gitignore file easily",
   "version": "1.1.1",
   "main": "./out/app.js",
   "bin": {
