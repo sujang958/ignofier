@@ -9,13 +9,14 @@ const git = simpleGit(REPO_DIR)
 export const checkCloned = async () => existsSync(join(REPO_DIR, ".git/config"))
 
 export const cloneRepo = async () => {
-  process.stdout.write("Cloning the github/gitignore repository... \r\n")
+  console.log("Cloning the github/gitignore repository...")
   await git.clone("https://github.com/github/gitignore", ".")
   console.log("Done")
 }
 
 export const updateRepo = async () => {
   console.log("Updating the repository")
+  if (await isRepoUpToDate()) return console.log("Already up-to-date")
   const res = await git.pull("origin", "main")
   if (res.summary.changes > 0) return console.log("Updated")
   else return console.log("Already up-to-date")
@@ -28,3 +29,11 @@ export const getIgnoreFiles = async () =>
       name: file,
       path: join(REPO_DIR, file),
     }))
+
+export const isRepoUpToDate = async () => {
+  const status = await git.status()
+  const behind = status.behind
+
+  if (behind < 1) return true
+  else return false
+}

@@ -1,3 +1,5 @@
+# This file was created with ignofier 
+
 # Logs
 logs
 *.log
@@ -7,10 +9,10 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-git/
-
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+git
 
 # Runtime data
 pids
@@ -85,6 +87,10 @@ web_modules/
 .cache
 .parcel-cache
 
+# Next.js build output
+.next
+out
+
 # Nuxt.js build / generate output
 .nuxt
 dist
@@ -97,10 +103,6 @@ dist
 
 # vuepress build output
 .vuepress/dist
-
-.DS_Store
-
-out/
 
 # vuepress v2.x temp and cache directory
 .temp
