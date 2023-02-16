@@ -8,29 +8,25 @@ Create a gitignore file easily
 $ npm install -g ignofier
 ```
 
-or
-
-```
-$ npm install --location=global ignofier
-```
-
-## Usage
+## Demo
 
 ![Gif Image](https://raw.githubusercontent.com/sujang958/ignofier/main/using.gif)
 
-## Make a .gitignore file
+## Usage
+
+_Create a .gitignore file_
 
 ```sh
 $ ignofier
 ```
 
-## Check version
+_Check version_
 
 ```sh
 $ ignofier -v
 ```
 
-## Update the gitignore repository
+_Update the gitignore repository_
 
 ```sh
 $ ignofier -u
