@@ -1,6 +1,6 @@
-# Ignofier
+# ignofier
 
-Create a gitignore file easily
+This CLI tool makes it easy to create a gitignore file
 
 ## Installing
 
